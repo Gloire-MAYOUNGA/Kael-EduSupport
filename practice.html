@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dyslexia Support Practice</title>
+</head>
+<body>
+  <h2>Text to Speech</h2>
+  <textarea id="textInput" rows="5" cols="40" placeholder="Type something..."></textarea><br>
+  <button onclick="readText()">Read Aloud</button>
+
+  <hr>
+
+  <h2>Speech to Text</h2>
+  <button onclick="startSpeechToText()">Start Speaking</button><br><br>
+  <textarea id="speechOutput" rows="5" cols="40" placeholder="Your speech will appear here..." readonly></textarea>
+
+  <script>
+    function readText() {
+      const text = document.getElementById('textInput').value;
+      if (text.trim() === '') {
+        alert("Please type something first.");
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+
+    function startSpeechToText() {
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        alert("Your browser doesn't support speech recognition.");
+        return;
+      }
+
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('speechOutput').value = transcript;
+      };
+
+      recognition.onerror = function(event) {
+        alert("Speech recognition error: " + event.error);
+      };
+
+      recognition.start();
+    }
+  </script>
+</body>
+</html>

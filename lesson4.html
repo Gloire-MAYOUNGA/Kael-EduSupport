@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 4 - Track Your Progress</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h2 { color: green; }
+    p { line-height: 1.6; }
+    .progress-bar {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .progress {
+      height: 25px;
+      background-color: green;
+      width: 70%;
+      text-align: center;
+      color: white;
+      line-height: 25px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      display: inline-block;
+      background: green;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .tts-btn {
+      background-color: orange;
+      margin-top: 15px;
+      display: inline-block;
+      padding: 8px 15px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" id="lesson-content">
+    <h2>Lesson 4: Track Your Progress</h2>
+    <p>
+      Kael 5000 helps you track your learning progress in real time. Each time you complete a lesson or activity, your progress bar updates automatically.
+    </p>
+    <p>
+      You can see how much you've learned and what’s left. This helps you stay motivated and focused on completing all your lessons.
+    </p>
+
+    <h3>Your Progress</h3>
+    <div class="progress-bar">
+      <div class="progress">70% Complete</div>
+    </div>
+
+    <p>Once you reach 100%, you’ll unlock a final assessment to test your skills!</p>
+
+    <button class="tts-btn" onclick="readLesson()">Read Aloud</button>
+    <a href="dashboard.php">Back to Dashboard</a>
+  </div>
+
+  <script>
+    function readLesson() {
+      const content = document.getElementById('lesson-content').innerText;
+      const speech = new SpeechSynthesisUtterance(content);
+      speech.lang = 'en-US';
+      speech.rate = 1;
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
+</body>
+</html>

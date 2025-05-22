@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kael Education</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .header-buttons .btn {
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      color: white;
+      margin-left: 10px;
+    }
+    .green {
+      background-color: green;
+    }
+    .blue-section {
+      background-color: #007BFF;
+      color: white;
+      padding: 5px 20px;
+      text-align: center;
+      
+}
+    .blue-section h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .blue-section p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .yellow-btn {
+      background-color: yellow;
+      color: black;
+      padding: 12px 20px;
+      border: none;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 18px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .menu-bar {
+      background-color: green;
+      padding: 15px;
+      text-align: center;
+    }
+    .menu-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #menu-page {
+      background-color: white;
+      padding: 20px;
+      display: none;
+    }
+    #menu-page ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    #menu-page li {
+      margin: 10px 0;
+    }
+    .signup {
+      display: none;
+      background-color: #f9f9f9;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .signup h2 {
+      font-size: 28px;
+    }
+    .signup ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .signup li {
+      margin: 10px 0;
+    }
+    .signup input,
+    .signup select {
+      width: 90%;
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+    }
+    .white-section {
+      background-color: white;
+      color: black;
+      padding: 40px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+   <h1 style="margin:0;">
+    <span style="color: red;">Kael</span> <span style="color: blue;">Education</span>
+  </h1>
+  <div class="header-buttons">
+    <a href="login.html" style="margin-right: 10px; text-decoration: none; color: black;">Login</a>
+   <a href="signup.html">
+  <button style="background: green; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+    Sign Up Free
+  </button>
+</a>
+  </div>
+</header>
+
+  <div class="menu-bar">
+    <a href="#" onclick="toggleMenu()">Menu</a>
+  </div>
+
+  <section id="menu-page">
+    <ul>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <a href="lesson3-practice.html" class="btn btn-primary">Practices</a>
+      <li><a href="#">Support</a></li>
+      <li><a href="#signup-section">Free Trials</a></li>
+    </ul>
+  </section>
+
+  <section class="blue-section">
+    <h2 style="font-size: 40px;">Breaking Through Learning Barriers</h2>
+<p style="font-size: 30px;">Powerful reading, writing, studying and test-taking tools, built on UDL, allowing curriculum to be accessible to all students.</p>
+    <a href="#" class="yellow-btn" onclick="toggleSignup()">START FREE TRIAL</a>
+    <div style="margin-top: 20px;">
+      <img src="images/pic3.jpg" alt="Kael Product" style="width: 150px; height: auto; margin-right: 10px;">
+      <img src="images/pic1.jpg" alt="Kael Product 2" style="width: 150px; height: auto;">
+    </div>
+  </section>
+  <section class="white-section">
+    <h2>Taking control of your own education</h2>
+    <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px;">
+      Kael Education believes that every student can become a steward of their own education when given the right resources and support.
+    </p>
+    <p style="font-size: 16px; margin-top: 20px;">
+      <strong>1.5 Million+</strong><br>Users Supported<br><br>
+      <strong>2.5 Million+</strong><br>Yearly Logins<br><br>
+      <strong>3 Million+</strong><br>Readings Initiated
+    </p>
+    <img src="images/pic6.jpg" alt="Empowered Student" style="width: 300px; height: 180px; margin-top: 20px; border-radius: 8px;">
+  </section>
+
+<section style="background-color: black; color: white; text-align: center; padding: 40px 20px;">
+  <h2 style="font-size: 28px;">Top Kael features for supporting learning disabilities and smarter studying</h2>
+  <button onclick="toggleProducts()" style="background-color: white; color: black; font-weight: bold; padding: 12px 25px; margin-top: 20px; border: none; border-radius: 5px; cursor: pointer;">
+    VIEW ALL OUR PRODUCTS
+  </button>
+</section>
+
+<section id="products-section" style="display: none;">
+
+  <div style="background-color: #a0522d; color: white; text-align: center; padding: 40px 20px;">
+    <h2 style="font-size: 28px;">Kael Products</h2>
+    <p style="max-width: 800px; margin: 0 auto;">
+      Offering best-in-class assistive technology products, Kael Education prides itself on providing a solution for all learners. Discover more about each solution.
+    </p>
+  </div>
+
+  <div style="background-color: white; color: black; text-align: center; padding: 40px 20px;">
+    <h2 style="font-size: 26px;">KAEL 5000</h2>
+    <p style="max-width: 800px; margin: 0 auto; font-size: 18px;">
+      Kael 5000 is a literacy support software with powerful reading, text-to-speech, speech-to-text, visual aids, highlighting when reading, and study skills tools that makes curriculum accessible to all students.
+    </p>
+  </div>
+</section>
+  <div style="background-color: white; text-align: center; padding: 20px;">
+    <h3 style="color: #007BFF; font-size: 22px;">Text-to-Speech</h3>
+    <p>Natural Text-to-Speech voices in 2 languages French and English</p>
+
+    <h3 style="color: #007BFF; font-size: 22px;">Writing Support</h3>
+    <p>Speech-to-Text supports writing and taking notes. Voice notes and dyslexic font add additional support.</p>
+
+    <h3 style="color: #007BFF; font-size: 22px;">Markup Tools</h3>
+    <p>Highlight, circle and strikethrough to emphasize the critical pieces of your text.</p>
+
+    <h3 style="color: #007BFF; font-size: 22px;">Progress Tracking</h3>
+    <p>Help Teacher guiding students and visualize their improvement.</p>
+  </div>
+
+<script>
+  function toggleProducts() {
+    const section = document.getElementById("products-section");
+    section.style.display = section.style.display === "none" ? "block" : "none";
+  }
+</script>
+  <section id="signup-section" class="signup">
+    <h2>FREE TRIALS</h2>
+    <p><strong>Kael 5000</strong> is an easy-to-use software platform that promotes independent learning on any device.</p>
+    <ul>
+      <li>Subscription to the Kael 5000 platform</li>
+      <li>Tips and strategies shared weekly</li>
+      <li>Free 30-minute tutorials with our team</li>
+      <li>Discounted 1:1 Tutoring with AT Specialists</li>
+      <li>Free video how-to’s in the Kael Academy</li>
+    </ul>
+    <form action="signup.php" method="post">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <select name="country" required>
+        <option value="">Select Country</option>
+        <option value="Congo">Congo</option>
+        <option value="Ghana">Ghana</option>
+      </select>
+      <select name="product" required>
+        <option value="">Select Product</option>
+        <option value="Kael 5000">Kael 5000</option>
+      </select>
+      <select name="occupation" required>
+        <option value="">Select Occupation</option>
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+      </select>
+      <label><input type="checkbox" required> Yes, I give Kael Education permission to email me.</label>
+      <br><br>
+      <button type="submit" class="btn green">Submit</button>
+    </form>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu-page");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleSignup() {
+      const signup = document.getElementById("signup-section");
+      signup.style.display = signup.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+<div style="background-color: black; color: white; padding: 30px 20px; text-align: center;">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 10px;">
+    <span style="font-size: 22px; font-weight: bold;">
+      <span style="color: red;">Kael</span><span style="color: blue;">Education</span>
+    </span>
+    <span style="font-size: 20px;">📖</span>
+  </div>
+  <a href="#" onclick="document.getElementById('privacyModal').style.display='block'" style="color: white; text-decoration: underline; margin-right: 15px;">Privacy Policy</a>
+  <a href="#" onclick="document.getElementById('supportModal').style.display='block'" style="color: white; text-decoration: underline;">Help</a>
+</div>
+
+<div id="privacyModal" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7);">
+  <div style="background-color: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; border-radius: 8px;">
+    <h2 style="color: black;">Privacy Policy</h2>
+    <p><strong>Notification of Changes</strong></p>
+    <p>
+      The Privacy Policy is subject to change at KaelEducation learning. If we decide to change our Privacy Policy, we will post those changes on our Homepage, kael_education.verce.com so our users are always aware of what information we collect, how we use it, and under circumstances, if any, we disclose it. We will use information in accordance with the Privacy Policy in effect when the information was collected. If at any point we decide to use personally identifiable information in a manner different from that stated at the time it was collected, we will notify users by way of an e-mail. Users will have a choice as to whether or not we use their information in a different manner.
+    </p>
+
+    <p><strong>CONTACT</strong><br>
+    Kael Education is the only operator collecting or maintaining student data and PII. Kael Education's contact information for questions or concerns about this data or privacy is as follows:</p>
+
+    <p>
+      Kael Education, Inc.<br>
+      22 NAA DAWA ST, AWOSHIE GC-118-3188<br>
+      <a href="mailto:support@mayoungagloireexauce@gmail.com">support@mayoungagloireexauce@gmail.com</a>
+    </p>
+
+    <button onclick="document.getElementById('privacyModal').style.display='none'" style="margin-top: 20px; padding: 10px 20px; background-color: black; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+  </div>
+</div>
+
+<div id="supportModal" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7);">
+  <div style="background-color: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; border-radius: 8px;">
+    <h2 style="color: black;">SUPPORT</h2>
+    <p><strong>Customer Service</strong></p>
+    <p>
+      We provide excellent customer service for customers and prospective customers alike. Connect with us and see how we can help.
+    </p>
+    <p><strong>Technical Support</strong></p>
+    <p>
+      KaelEducation in partenariat with GTech Technologies is proud to offer free technical support for Kael 5000 software.
+    </p>
+    <button onclick="document.getElementById('supportModal').style.display='none'" style="margin-top: 20px; padding: 10px 20px; background-color: black; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+  </div>
+</div>
+</body>
+</html>

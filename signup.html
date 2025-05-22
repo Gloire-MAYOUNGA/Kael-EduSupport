@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - Kael Education</title>
+  <style>
+    body { font-family: Arial; background-color: #f9f9f9; margin: 0; padding: 0; }
+    .container {
+      max-width: 600px; margin: 40px auto; background: white; padding: 30px;
+      border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { color: green; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    button {
+      margin-top: 20px; background: green; color: white;
+      padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;
+    }
+    .checkbox { margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>FREE TRIALS - Sign Up</h2>
+    <p>Kael 5000 is an easy-to-use software platform that promotes independent learning on any device.</p>
+    <form action="signup.php" method="POST">
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Country</label>
+      <select name="country" required>
+        <option value="">-- Select Country --</option>
+        <option value="Congo">Congo</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Product</label>
+      <select name="product" required>
+        <option value="Kael 5000">Kael 5000</option>
+        <option value="Kael Academy">Kael Academy</option>
+      </select>
+
+      <label>Occupation</label>
+      <input type="text" name="occupation" required>
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <div class="checkbox">
+        <input type="checkbox" name="consent" value="Yes" required> Yes, I give Kael Education permission to email me.
+      </div>
+
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+</body>
+</html>

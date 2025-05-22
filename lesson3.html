@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 3 – Practice Activities</title>
+  <style>
+    @font-face {
+      font-family: 'OpenDyslexic';
+      src: url('https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/fonts/OpenDyslexic-Regular.otf') format('opentype');
+    }
+
+    body {
+      font-family: 'OpenDyslexic', Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      transition: background-color 0.3s;
+    }
+
+    h2, h3 {
+      color: #333;
+    }
+
+    textarea, #highlightBox {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      font-family: 'OpenDyslexic', Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    button, select {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px 5px 10px 0;
+      cursor: pointer;
+    }
+
+    .highlight span {
+      padding: 2px;
+    }
+
+    .highlight .active {
+      background-color: yellow;
+    }
+
+    .controls {
+      margin: 10px 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="dashboard.php">← Back to Dashboard</a>
+
+  <h2>Lesson 3: Practice Activities</h2>
+
+  <!-- Dyslexia Customization -->
+  <h3>Customize Display</h3>
+  <div class="controls">
+    Font Size:
+    <select onchange="changeFontSize(this.value)">
+      <option value="16px">Default</option>
+      <option value="20px">Large</option>
+      <option value="24px">Extra Large</option>
+    </select>
+
+    Line Spacing:
+    <select onchange="changeLineSpacing(this.value)">
+      <option value="1.5">Normal</option>
+      <option value="2">Wide</option>
+      <option value="2.5">Extra Wide</option>
+    </select>
+
+    Background Color:
+    <select onchange="changeBgColor(this.value)">
+      <option value="#f5f5f5">Default</option>
+      <option value="#ffffff">White</option>
+      <option value="#e0f7fa">Light Blue</option>
+      <option value="#fff8e1">Light Yellow</option>
+    </select>
+  </div>
+
+  <!-- Text to Speech -->
+  <h3>1. Text to Speech</h3>
+  <textarea id="ttsText" placeholder="Type or paste text here..."></textarea><br>
+  <button onclick="readText()">Read Aloud</button>
+
+  <!-- Highlighted Reading -->
+  <h3>2. Highlighted Reading</h3>
+  <button onclick="highlightRead()">Read with Highlight</button>
+  <div id="highlightBox" class="highlight"></div>
+
+  <!-- Speech to Text -->
+  <h3>3. Speech to Text</h3>
+  <textarea id="speechOutput" placeholder="Click below and speak..."></textarea><br>
+  <button onclick="startSpeechToText()">Start Recording</button>
+
+  <script>
+    // Text to Speech
+    function readText() {
+      const text = document.getElementById("ttsText").value;
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-US";
+      speech.rate = 1;
+      window.speechSynthesis.speak(speech);
+    }
+
+    // Highlighted Reading
+    function highlightRead() {
+      const text = document.getElementById("ttsText").value;
+      const words = text.split(" ");
+      const highlightBox = document.getElementById("highlightBox");
+      highlightBox.innerHTML = "";
+      words.forEach((word, index) => {
+        const span = document.createElement("span");
+        span.textContent = word + " ";
+        highlightBox.appendChild(span);
+      });
+
+      const spans = highlightBox.querySelectorAll("span");
+      let index = 0;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+
+      utterance.onboundary = function (event) {
+        if (event.name === "word" || event.charIndex >= 0) {
+          spans.forEach((span, i) => span.classList.remove("active"));
+          if (spans[index]) spans[index].classList.add("active");
+          index++;
+        }
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Speech to Text
+    function startSpeechToText() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Speech recognition not supported.");
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+
+      recognition.onresult = function(event) {
+        document.getElementById("speechOutput").value = event.results[0][0].transcript;
+      };
+
+      recognition.onerror = function(event) {
+        alert("Error: " + event.error);
+      };
+
+      recognition.start();
+    }
+
+    // Customization functions
+    function changeFontSize(size) {
+      document.body.style.fontSize = size;
+    }
+
+    function changeLineSpacing(space) {
+      const allTextAreas = document.querySelectorAll("textarea, #highlightBox");
+      allTextAreas.forEach(el => {
+        el.style.lineHeight = space;
+      });
+    }
+
+    function changeBgColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>
